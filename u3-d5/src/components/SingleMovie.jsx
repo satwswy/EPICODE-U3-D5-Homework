@@ -12,6 +12,7 @@ export default class SingleMovie extends Component {
                                 <Card.Text>
                                     Year: {this.props.movie.Year}
                                 </Card.Text>
+                                <Button variant="primary">Details</Button>
                             </Card.Body>
                         </Card>
                    
