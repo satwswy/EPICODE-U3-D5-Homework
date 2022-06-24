@@ -37,7 +37,7 @@ export default class GalleryOne extends Component {
                     return (
 
                         <Col key={movie.imdbID} xs={6} md={4} lg={3} className="text-center">
-                            <SingleMovie  movie={movie} />
+                            <SingleMovie  movie={movie}/>
                         </Col>
 
 
