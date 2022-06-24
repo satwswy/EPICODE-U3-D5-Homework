@@ -10,8 +10,14 @@ function App() {
   return (
     <div>
       <NavBar />
+      <h1>Harry Potter</h1>
+      <hr />
       <GalleryOne />
+      <h1>Hobbit</h1>
+      <hr />
       <GalleryTwo />
+      <h1>Batman</h1>
+      <hr />
       <GalleryThree />
       
 
