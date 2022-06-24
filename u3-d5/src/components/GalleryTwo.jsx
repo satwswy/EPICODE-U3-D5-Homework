@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import SingleMovie from './SingleMovie'
 import { Container, Row,Col } from 'react-bootstrap'
+import { SpinnerRoundOutlined } from "spinners-react"
 
 export default class GalleryOne extends Component {
     state = {
-        movies:[]
+        movies:[],
+        isLoading: true,
     }
     componentDidMount = () => {
         this.fetchGalleryOneMovies()
@@ -16,7 +18,8 @@ export default class GalleryOne extends Component {
             const data = await response.json()
             console.log(data)
             this.setState({
-                movies:data.Search
+                movies:data.Search,
+                isLoading: false,
             })
         }
         catch (err) {
@@ -26,6 +29,9 @@ export default class GalleryOne extends Component {
     render() {
         return (
             <Container>
+                {this.state.isLoading && (
+            <SpinnerRoundOutlined size={90} thickness={180} speed={180} color="rgba(172, 127, 57, 1)" />
+          )}
             <Row className="justify-content-center mt-3">
                 {this.state.movies.map(movie => {
                     return (
