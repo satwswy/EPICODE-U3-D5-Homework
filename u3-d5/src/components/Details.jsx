@@ -3,7 +3,7 @@ import { ListGroup } from 'react-bootstrap'
 
 export default class Details extends Component {
     state = {
-        details:[]
+        details:{}
     }
     fetchDetails = async () => {
         const response = await fetch(`http://www.omdbapi.com/?apikey=1116749d&i=${this.props.id}&plot=full`)
@@ -11,6 +11,7 @@ export default class Details extends Component {
         this.setState({
             details: data,
         })
+        console.log(data)
         
     }
     componentDidMount = async()=> {
@@ -18,13 +19,13 @@ export default class Details extends Component {
     }
   render() {
     return (
-      <div><ListGroup>
-      <ListGroup.Item>Actors: {actors.split(",").map((actor)=>(<div>actor</ div>))} </ListGroup.Item>
-      <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-      <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-      <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-      <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-    </ListGroup></div>
+      <ListGroup >
+      <ListGroup.Item>Actors:  {this.state.details.Actors && this.state.details.Actors.split(",").map((actor)=>(<div>{actor}</div>))}</ListGroup.Item>
+      <ListGroup.Item>Awards: {this.state.details.Awards && this.state.details.Awards.split(",").map((actor)=>(<div>{actor}</div>))}</ListGroup.Item>
+      <ListGroup.Item>Genre: {this.state.details.Genre && this.state.details.Genre.split(",").map((actor)=>(<div>{actor}</div>))}</ListGroup.Item>
+      <ListGroup.Item>Released: {this.state.details.Released && this.state.details.Released.split(",").map((actor)=>(<div>{actor}</div>))}</ListGroup.Item>
+      <ListGroup.Item>Plot: {this.state.details.Plot && this.state.details.Plot.split(",").map((actor)=>(<div>{actor}</div>))}</ListGroup.Item>
+    </ListGroup>
     
     )
   }
